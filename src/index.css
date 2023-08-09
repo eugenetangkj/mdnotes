@@ -138,3 +138,26 @@ button:focus {
   align-items: center;
   background-color: whitesmoke;
 }
+
+.delete-button {
+  display: none;
+  background: none;
+  border: none;
+}
+
+.title:hover > .delete-button {
+  display: block;
+}
+
+.trash-icon {
+  cursor: pointer;
+  color: rgb(153, 153, 153);
+  font-size: 1.5em;
+  margin-right: 10px;
+}
+
+.selected-note > .delete-button > .trash-icon {
+  color: white;
+}
+
+
