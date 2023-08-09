@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { auth, logInWithEmailAndPassword, signInWithGoogle } from "./firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import appLogo from "./images/logo.png";
-import "./Login.css";
+import './css/Login.css'
 
 function Login() {
     //States for tracking input fields where React forms are state-driven
@@ -11,7 +11,7 @@ function Login() {
     const [password, setPassword] = useState("");
 
     //State to track user's auth information
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const navigate = useNavigate();
 
 
@@ -33,34 +33,23 @@ function Login() {
             <div className="login-container">
                 <img src={appLogo} alt="MdNotes Logo" id="app-logo"></img>
 
-                <input
-                type="text"
-                className="login-input"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="E-mail Address"
-                />
-                <input
-                type="password"
-                className="login-input"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Password"
-                />
-                <button
-                className="login__btn"
-                onClick={() => logInWithEmailAndPassword(email, password)}
-                >
-                Login
+                <input type="text" className="login-input" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="E-mail Address" />
+                
+                <input type="password" className="login-input" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
+                
+                <button className="login-btn" onClick={() => logInWithEmailAndPassword(email, password)}>
+                    Login
                 </button>
-                <button className="login__btn login__google" onClick={signInWithGoogle}>
-                Login with Google
+
+                <button className="login-btn login-google" onClick={signInWithGoogle}>
+                    Login with Google
                 </button>
+                
                 <div className="login-subtext">
-                <Link to="/reset">Forgot Password</Link>
+                    <Link to="/reset">Forgot Password</Link>
                 </div>
                 <div className="login-subtext">
-                Don't have an account? <Link to="/register">Register</Link> now.
+                    Don't have an account? <Link to="/register">Register</Link> now.
                 </div>
             </div>
         </div>
