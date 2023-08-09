@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate, Link } from "react-router-dom";
-import { auth, registerWithEmailAndPassword, signInWithGoogle, } from "./firebase";
-import "./css/Register.css"
+import { auth, registerWithEmailAndPassword, signInWithGoogle, } from "../firebase";
+import "../css/Register.css"
 
 
 function Register() {
@@ -14,7 +14,6 @@ function Register() {
 
     //State to track user's registration progress
     const [user, loading] = useAuthState(auth);
-    const navigate = useNavigate();
     const register = () => {
         if (!name) {
             //Remind user that name is required
@@ -22,6 +21,9 @@ function Register() {
         }
         registerWithEmailAndPassword(name, email, password);
     };
+
+    //Set up navigation variable to navigate between routes
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (loading) {
