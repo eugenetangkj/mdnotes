@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, getAuth, signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail, signOut} from "firebase/auth";
 import { getFirestore, collection, query, getDocs, where, addDoc } from "firebase/firestore";
+import { invalidEmailException, incorrectPasswordException, missingPasswordException, missingEmailException, weakPasswordException } from "./constants/firebaseErrors";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAMGwrz5FCyLEu6Mv_i5aI36jbt2d73w5w",
@@ -42,12 +43,12 @@ const signInWithGoogle = async () => {
         }
     } catch (error) {
         //User was unable to sign in properly
-        alert(error.message);
+        alert("Request cannot be handled. Please try again later.");
     }
 };
 
 //Provide email register feature
-const registerWithEmailAndPassword = async (name, email, password) => {
+const registerWithEmailAndPassword = async (email, password) => {
     try {
         //Try to create a new account
         const result = await createUserWithEmailAndPassword(auth, email, password);
@@ -55,13 +56,20 @@ const registerWithEmailAndPassword = async (name, email, password) => {
         //Add new account into database
         await addDoc(usersCollection, {
             uid: newUser.uid,
-            name,
             authProvider: "local",
             email,
         });
     } catch (error) {
         //Could not create an account
-        alert(error.message);
+        if (error.message === invalidEmailException) {
+            alert("Email is invalid. Please try again.");
+        } else if (error.message === weakPasswordException) {
+            alert("Password has to be minimum 6 characters.");
+        } else if (error.message === missingPasswordException) {
+            alert("Password cannot be empty.");
+        } else {
+            alert(error.message);
+        }
     }
 }
 
@@ -72,7 +80,15 @@ const logInWithEmailAndPassword = async (email, password) => {
         await signInWithEmailAndPassword(auth, email, password);
     } catch (error) {
         //Unable to sign in with the given credentials
-        alert(error.message);
+        if (error.message === invalidEmailException) {
+            alert("Email is invalid. Please try again.");
+        } else if (error.message === incorrectPasswordException) {
+            alert("Password is incorrect. Please try again.");
+        } else if (error.message === missingPasswordException) {
+            alert("Password cannot be empty.");
+        } else {
+            alert(error.message);
+        }
     }
 }
 
@@ -84,7 +100,14 @@ const sendPasswordReset = async (email) => {
         alert("Password reset link has been sent!");
     } catch (error) {
         //Got problem sending reset email
-        alert(error.message);
+        if (error.message === invalidEmailException) {
+            alert("Email is invalid. Please try again.");
+        }
+        else if (error.message === missingEmailException) {
+            alert("Email cannot be empty.");
+        } else {
+            alert(error.message);
+        }
     }
 };
 

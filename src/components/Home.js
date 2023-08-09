@@ -5,7 +5,7 @@ import Split from "react-split";
 import { nanoid } from "nanoid";
 import { useEffect } from "react";
 import { onSnapshot, addDoc, doc, deleteDoc, setDoc } from "firebase/firestore";
-import { notesCollection, database, auth } from "../firebase";
+import { notesCollection, database, auth, logout } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 
@@ -39,16 +39,17 @@ export default function Home() {
   useEffect(() => {
     const unsubscribe = onSnapshot(notesCollection, function(snapshot) {
       //Sync local notes array with latest snapshot from database
+
       const notesArray = snapshot.docs.map(doc => ({
         ...doc.data(),
         id: doc.id,
-      }))
+      })).filter(note => note.userId == user.uid);
 
       setNotes(notesArray);
 
     });
     return unsubscribe; //Clean up function for React to call when component becomes unmounted
-  }, []);
+  }, [user]);
 
   //Set up a side effect to update current node id whenever all notes change
   useEffect(() => {
@@ -156,14 +157,17 @@ export default function Home() {
               }
           </Split>
           :
-          <div className="no-notes">
-              <h1>You have no notes</h1>
-              <button 
-                  className="first-note" 
-                  onClick={createNewNote}
-              >
-                  Create one now
-              </button>
+          <div>
+            <button className="logout-button-home" onClick={logout}>Logout</button>
+            <div className="no-notes">
+                <h1>You have no notes</h1>
+                <button 
+                    className="create-new-note-button" 
+                    onClick={createNewNote}
+                >
+                    Create New Note
+                </button>
+            </div>
           </div>
           
       }

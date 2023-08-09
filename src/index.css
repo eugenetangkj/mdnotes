@@ -34,30 +34,36 @@ button:focus {
 
 .sidebar--header {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
 }
 
 .sidebar--header > h3 {
   font-size: 1.75rem;
+  margin-right: auto;
+  margin-left: 5%;
 }
 
-.new-note {
+.side-bar-button {
   cursor: pointer;
   background-color: #4A4E74;
   border: none;
   color: white;
   border-radius: 3px;
-  padding: 10px;
+  padding: 15px;
+  font-family: 'Karla', sans-serif;
+  margin-right: 5%;
 }
 
-.first-note {
+.create-new-note-button {
   cursor: pointer;
   background-color: #4A4E74;
   border: none;
   color: white;
   border-radius: 3px;
-  padding: 1rem;
+  padding:  15px;
+  font-size: 20px;
+  font-family: 'Karla', sans-serif;
 }
 
 .editor {
@@ -137,6 +143,19 @@ button:focus {
   align-items: center;
   background-color: whitesmoke;
 }
+
+.logout-button-home {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  cursor: pointer;
+  background-color: #4A4E74;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  padding: 15px;
+}
+
 
 .delete-button {
   display: none;
