@@ -12,7 +12,7 @@ export default function Sidebar(props) {
                 onClick={() => props.setCurrentNoteId(note.id)}
             >
                 <h4 className="text-snippet">{note.body.split("\n")[0]}</h4>
-                <button className="delete-button" onClick={(event) => props.deleteNoteFunction(event, note.id)}>
+                <button className="delete-button" onClick={() => props.deleteNoteFunction(note.id)}>
                     <BsTrash className="note-trash trash-icon"/>
                 </button>
             </div>
