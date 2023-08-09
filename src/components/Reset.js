@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { auth, sendPasswordReset } from "../firebase";
 import "../css/Reset.css"
 
-function Reset() {
+function Reset(props) {
     //States to keep track of user input fields
     const [email, setEmail] = useState("");
 
@@ -26,7 +26,16 @@ function Reset() {
     const navigate = useNavigate();
 
     return (
-        <div className="reset">
+        <div className={`reset ${props.isDarkMode ? 'dark' : ''}`}>
+            <div className="toggler">
+                <p className="toggler-light">Light</p>
+                <div className="toggler-slider" onClick={props.toggleDarkMode}>
+                    <div className="toggler-slider-circle"></div>
+                </div>
+                <p className="toggler-dark">Dark</p>
+            </div>
+
+
             <div className="reset-container">
                 <h2>Recover Password</h2>
 

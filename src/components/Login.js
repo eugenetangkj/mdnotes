@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth, logInWithEmailAndPassword, signInWithGoogle } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import appLogo from "../images/logo.png";
 import '../css/Login.css'
 
-function Login() {
+function Login(props) {
     //States for tracking input fields where React forms are state-driven
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -29,8 +29,15 @@ function Login() {
 
 
     return (
-        <div className="login">
-            <div className="login-container">
+        <div className={`login ${props.isDarkMode ? "dark": ""}`}>
+            <div className="toggler">
+                <p className="toggler-light">Light</p>
+                <div className="toggler-slider" onClick={props.toggleDarkMode}>
+                    <div className="toggler-slider-circle"></div>
+                </div>
+                <p className="toggler-dark">Dark</p>
+            </div>
+            <div className={`login-container ${props.isDarkMode ? "dark": ""}`}>
                 <img src={appLogo} alt="MdNotes Logo" id="app-logo"></img>
 
                 <input type="text" className="login-input" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="E-mail Address" />

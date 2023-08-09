@@ -5,7 +5,7 @@ import { auth, registerWithEmailAndPassword, signInWithGoogle, } from "../fireba
 import "../css/Register.css"
 
 
-function Register() {
+function Register(props) {
     //States to keep track of user input in input fields
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -32,7 +32,14 @@ function Register() {
   
   
   return (
-    <div className="register">
+    <div className={`register ${props.isDarkMode ? "dark" : ''}`}>
+      <div className="toggler">
+        <p className="toggler-light">Light</p>
+        <div className="toggler-slider" onClick={props.toggleDarkMode}>
+            <div className="toggler-slider-circle"></div>
+        </div>
+        <p className="toggler-dark">Dark</p>
+      </div>
       <div className="register-container">
         
         <h2>Welcome!</h2>
