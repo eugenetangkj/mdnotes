@@ -83,8 +83,8 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Toggler */
-.toggler {
+/* toggler-reset */
+.toggler-reset {
     display: flex;
     flex-direction: row;
     justify-items: center;
@@ -94,17 +94,17 @@ a:hover {
     right: 2.5%;
   }
   
-.toggler p {
+.toggler-reset p {
     font-size: 1em;
     color: #2B283A;
     padding: 20px;
   }
   
-.reset.dark .toggler p {
+.reset.dark .toggler-reset p {
     color: white;
   }
   
-.toggler-slider {
+.toggler-reset-slider {
     width: 70px;
     height: 35px;
     background-color: #282D35;
@@ -117,13 +117,13 @@ a:hover {
     border: 5px solid #282D35;
   }
   
-.reset.dark .toggler-slider {
+.reset.dark .toggler-reset-slider {
     border-color: white;
     background-color: #F5F5F5;
     justify-content: flex-end;
   }
   
-.toggler-slider-circle {
+.toggler-reset-slider-circle {
     height: 20px;
     width: 20px;
     background-color: white;
@@ -131,6 +131,6 @@ a:hover {
     margin-top: 0 ! important;
   }
   
-.reset.dark .toggler-slider-circle {
+.reset.dark .toggler-reset-slider-circle {
     background-color: #282D35;
   }

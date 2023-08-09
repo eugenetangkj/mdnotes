@@ -29,24 +29,31 @@ function Register(props) {
 
         }
     }, [user, loading]);
+
+    //Register function when user presses enter key
+    function enterRegister(event) {
+      if (event.key === "Enter") {
+          registerWithEmailAndPassword(email, password);
+      }
+  }
   
   
   return (
     <div className={`register ${props.isDarkMode ? "dark" : ''}`}>
-      <div className="toggler">
-        <p className="toggler-light">Light</p>
-        <div className="toggler-slider" onClick={props.toggleDarkMode}>
-            <div className="toggler-slider-circle"></div>
+      <div className="toggler-register">
+        <p className="toggler-register-light">Light</p>
+        <div className="toggler-register-slider" onClick={props.toggleDarkMode}>
+            <div className="toggler-register-slider-circle"></div>
         </div>
-        <p className="toggler-dark">Dark</p>
+        <p className="toggler-register-dark">Dark</p>
       </div>
       <div className="register-container">
         
         <h2>Welcome!</h2>
 
-        <input type="text" className="register-textBox" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="E-mail Address" />
+        <input type="text" className="register-textBox" value={email} onChange={(e) => setEmail(e.target.value)} onKeyDown={(event) => enterRegister(event)} placeholder="E-mail Address" />
 
-        <input type="password" className="register-textBox" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
+        <input type="password" className="register-textBox" value={password} onChange={(e) => setPassword(e.target.value)} onKeyDown={(event) => enterRegister(event)} placeholder="Password" />
 
         <button className="register-button" onClick={register}>
             Register

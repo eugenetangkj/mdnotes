@@ -24,7 +24,7 @@ export default function App() {
             <Route exact path="/" element={ <Login isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} /> } />
             <Route exact path="/register" element={ <Register isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} /> } />
             <Route exact path="/reset" element={ <Reset isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} /> } />
-            <Route exact path="/home" element={ <Home /> } />
+            <Route exact path="/home" element={ <Home isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} /> } />
           </Routes>
         </Router>
     </div>

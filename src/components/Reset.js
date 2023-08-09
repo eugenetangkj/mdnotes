@@ -25,14 +25,22 @@ function Reset(props) {
     //Set up navigation variable to navigate between routes
     const navigate = useNavigate();
 
+
+     //Register function when user presses enter key
+     function enterReset(event) {
+        if (event.key === "Enter") {
+            sendPasswordReset(email);
+        }
+     }
+
     return (
         <div className={`reset ${props.isDarkMode ? 'dark' : ''}`}>
-            <div className="toggler">
-                <p className="toggler-light">Light</p>
-                <div className="toggler-slider" onClick={props.toggleDarkMode}>
-                    <div className="toggler-slider-circle"></div>
+            <div className="toggler-reset">
+                <p className="toggler-reset-light">Light</p>
+                <div className="toggler-reset-slider" onClick={props.toggleDarkMode}>
+                    <div className="toggler-reset-slider-circle"></div>
                 </div>
-                <p className="toggler-dark">Dark</p>
+                <p className="toggler-reset-dark">Dark</p>
             </div>
 
 
@@ -40,7 +48,7 @@ function Reset(props) {
                 <h2>Recover Password</h2>
 
 
-                <input type="text" className="reset-textBox" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="E-mail Address" />
+                <input type="text" className="reset-textBox" value={email} onChange={(e) => setEmail(e.target.value)} onKeyDown={ (event) => enterReset(event) } placeholder="E-mail Address" />
             
                 <button className="reset-button" onClick={() => sendPasswordReset(email)}>
                     Send Password Reset Email

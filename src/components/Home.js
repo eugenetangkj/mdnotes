@@ -8,8 +8,9 @@ import { onSnapshot, addDoc, doc, deleteDoc, setDoc } from "firebase/firestore";
 import { notesCollection, database, auth, logout } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
+import "../css/Home.css";
 
-export default function Home() {
+export default function Home(props) {
   //Check if user is authenticated before displaying any notes
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
@@ -148,17 +149,31 @@ export default function Home() {
                   setCurrentNoteId={setCurrentNoteId}
                   newNote={createNewNote}
                   deleteNoteFunction={deleteNote}
+                  isDarkMode={props.isDarkMode}
+                  toggleDarkMode={props.toggleDarkMode}
               />
               {
                 <Editor 
                     tempNoteText={tempNoteText} 
                     setTempNoteText={setTempNoteText}
+                    isDarkMode={props.isDarkMode}
                 />
               }
           </Split>
           :
-          <div>
-            <button className="logout-button-home" onClick={logout}>Logout</button>
+          <div className={`no-notes-container ${props.isDarkMode ? "dark" : ''}`}>
+            
+            <div className="no-notes-options">
+              <div className="toggler">
+                <p className="toggler-light">Light</p>
+                <div className="toggler-slider" onClick={props.toggleDarkMode}>
+                    <div className="toggler-slider-circle"></div>
+                </div>
+                <p className="toggler-dark">Dark</p>
+                <button className="logout-button-home" onClick={logout}>Logout</button>
+              </div>
+            </div>
+
             <div className="no-notes">
                 <h1>You have no notes</h1>
                 <button 

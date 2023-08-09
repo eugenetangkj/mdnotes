@@ -2,7 +2,7 @@ import React from "react"
 import ReactMde from "react-mde"
 import Showdown from "showdown"
 
-export default function Editor({ tempNoteText, setTempNoteText }) {
+export default function Editor({ tempNoteText, setTempNoteText, isDarkMode }) {
     const [selectedTab, setSelectedTab] = React.useState("write")
 
     const converter = new Showdown.Converter({
@@ -13,7 +13,7 @@ export default function Editor({ tempNoteText, setTempNoteText }) {
     })  
 
     return (
-        <section className="pane editor">
+        <section className={`pane editor ${isDarkMode ? "dark" : ""}`}>
             <ReactMde
                 value={ tempNoteText }
                 onChange={ setTempNoteText }

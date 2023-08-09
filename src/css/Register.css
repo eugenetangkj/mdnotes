@@ -94,8 +94,8 @@ a:hover {
 }
 
 
-/* Toggler */
-.toggler {
+/* toggler-register */
+.toggler-register {
     display: flex;
     flex-direction: row;
     justify-items: center;
@@ -105,17 +105,17 @@ a:hover {
     right: 2.5%;
   }
   
-.toggler p {
+.toggler-register p {
     font-size: 1em;
     color: #2B283A;
     padding: 20px;
 }
   
-.register.dark .toggler p {
+.register.dark .toggler-register p {
     color: white;
   }
   
-.toggler-slider {
+.toggler-register-slider {
     width: 70px;
     height: 35px;
     background-color: #282D35;
@@ -128,13 +128,13 @@ a:hover {
     border: 5px solid #282D35;
   }
   
-.register.dark .toggler-slider {
+.register.dark .toggler-register-slider {
     border-color: white;
     background-color: #F5F5F5;
     justify-content: flex-end;
 }
   
-.toggler-slider-circle {
+.toggler-register-slider-circle {
     height: 20px;
     width: 20px;
     background-color: white;
@@ -142,6 +142,6 @@ a:hover {
     margin-top: 0 ! important;
   }
   
-  .register.dark .toggler-slider-circle {
+  .register.dark .toggler-register-slider-circle {
     background-color: #282D35;
 }

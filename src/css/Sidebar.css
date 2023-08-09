@@ -1,0 +1,109 @@
+
+.sidebar {
+    width: 20%;
+    height: 100vh;
+}
+
+.sidebar.dark {
+    background-color: #1A1A1A;
+
+}
+  
+.sidebar-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.sidebar-header > h3 {
+    font-size: 1.75rem;
+    margin-right: auto;
+    margin-left: 15px;
+}
+
+.sidebar.dark .sidebar-header > h3 {
+    color: white;
+}
+
+.side-bar-button {
+    cursor: pointer;
+    background-color: #4A4E74;
+    border: none;
+    color: white;
+    border-radius: 3px;
+    padding: 15px;
+    font-family: 'Karla', sans-serif;
+    margin-right: 5%;
+}
+
+.create-new-note-button {
+    cursor: pointer;
+    background-color: #4A4E74;
+    border: none;
+    color: white;
+    border-radius: 3px;
+    padding:  15px;
+    font-size: 20px;
+    font-family: 'Karla', sans-serif;
+}
+
+
+/* Toggler */
+.toggler {
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    position: static;
+    margin-left: 0px;
+    margin-top: -30px;
+    margin-bottom: 10px;
+}
+ 
+.toggler p {
+    font-size: 1em;
+    color: #2B283A;
+    padding: 20px;
+    padding-left: 0px;
+    margin-left: 15px;
+}
+
+
+.sidebar.dark .toggler p {
+    color: white;
+}
+
+.toggler-slider {
+    width: 70px;
+    height: 35px;
+    background-color: #282D35;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border: 5px solid #282D35;
+    flex-shrink: 0;
+}
+
+.sidebar.dark .toggler-slider {
+    border-color: white;
+    background-color: #F5F5F5;
+    justify-content: flex-end;
+}
+
+.toggler-slider-circle {
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    border-radius: 50%;
+    margin-top: 0 ! important;
+}
+
+.sidebar.dark .toggler-slider-circle {
+    background-color: #282D35;
+}
+
+
+  
