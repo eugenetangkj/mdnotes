@@ -1,5 +1,6 @@
 import React from "react"
 import { BsTrash } from "react-icons/bs";
+import { logout } from "../firebase";
 
 export default function Sidebar(props) {
     const noteElements = props.notes.map((note, index) => (
@@ -24,6 +25,7 @@ export default function Sidebar(props) {
             <div className="sidebar--header">
                 <h3>Notes</h3>
                 <button className="new-note" onClick={props.newNote}>+</button>
+                <button className="new-note" onClick={logout}>Logout</button>
             </div>
             {noteElements}
         </section>

@@ -34,7 +34,7 @@ function Reset() {
                 <input type="text" className="reset-textBox" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="E-mail Address" />
             
                 <button className="reset-button" onClick={() => sendPasswordReset(email)}>
-                    Send password reset email
+                    Send Password Reset Email
                 </button>
 
                 <div className="reset-subtext">

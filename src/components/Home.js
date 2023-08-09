@@ -1,16 +1,33 @@
-import React from "react"
-import Sidebar from "./components/Sidebar"
-import Editor from "./components/Editor"
-import Split from "react-split"
-import { nanoid } from "nanoid"
-import { useEffect } from "react"
-import { onSnapshot, addDoc, doc, deleteDoc, setDoc } from "firebase/firestore"
-import { notesCollection, database } from "./firebase"
+import React from "react";
+import Sidebar from "./Sidebar";
+import Editor from "./Editor";
+import Split from "react-split";
+import { nanoid } from "nanoid";
+import { useEffect } from "react";
+import { onSnapshot, addDoc, doc, deleteDoc, setDoc } from "firebase/firestore";
+import { notesCollection, database, auth } from "../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  //Check if user is authenticated before displaying any notes
+  const [user, loading] = useAuthState(auth);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (loading) {
+      return;
+    }
+    if (! user) {
+      //Not authenticated
+      return navigate("/");
+    }
+  }, [user, loading]);
+
+
   const [notes, setNotes] = React.useState([]);
   const [currentNoteId, setCurrentNoteId] = React.useState("");
   const [tempNoteText, setTempNoteText] = React.useState("");
+
 
   //Retrieves the currently-selected note
   //Will always be updated whenever the Home component re-renders
@@ -61,7 +78,7 @@ export default function Home() {
   */
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      if (tempNoteText !== currentNote.body) {
+      if (currentNote != null && tempNoteText !== currentNote.body) {
         updateNote(tempNoteText)
       }
     }, 500);
@@ -76,6 +93,7 @@ export default function Home() {
       const newNote = {
           id: nanoid(),
           body: "# Type your markdown note's title here",
+          userId: user.uid,
           createdAt: Date.now(),
           updatedAt: Date.now(),
       }
