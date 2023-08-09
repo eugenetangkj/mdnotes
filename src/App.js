@@ -54,6 +54,15 @@ export default function App() {
       setNotes(newNotesArray);
       
     }
+
+    //Deletes a note when a trash icon is clicked
+    function deleteNote(event, noteId) {
+      event.stopPropagation();
+      //Remove the selected note
+      setNotes(function (prevNotes) {
+        return prevNotes.filter(note => note.id !== noteId);
+      })
+    }
     
     //Helper function that retrieves a particular note
     function findCurrentNote() {
@@ -77,6 +86,7 @@ export default function App() {
                     currentNote={findCurrentNote()}
                     setCurrentNoteId={setCurrentNoteId}
                     newNote={createNewNote}
+                    deleteNoteFunction={deleteNote}
                 />
                 {
                     currentNoteId && 
