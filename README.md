@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# MdNotes
+Ever found yourself writing many markdown documents and want to easily reference them across projects (remembering Markdown syntax could be difficult 🥲 ) ? Well, MdNotes is perfect for you. MdNotes is a desktop web application that stores your markdown notes and documents on a cloud server, allowing you to easily cross-reference whenever required. All you need is a desktop and Internet connection!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Tech Stack
+MdNotes is built using ReactJS for the front-end and Firebase Authentication/Firestore for the backend. It uses the following dependencies:
 
-## Available Scripts
+| Dependencies                                                               | Purpose                                              | Command                                   |
+|----------------------------------------------------------------------------|------------------------------------------------------|-------------------------------------------|
+| [nanoid](https://www.npmjs.com/package/nanoid)                             | Generates a unique id for each note                  | `npm install --save nanoid`               |
+| [react-split](https://www.npmjs.com/package/react-split)                   | Allows for a 2-pane interface in the notes interface | `npm install --save react-split`          |
+| [showdown](https://www.npmjs.com/package/react-showdown)                   | Converts between React components and Markdown       | `npm install --save react-showdown`       |
+| [react-mde](https://www.npmjs.com/package/react-mde)                       | Provides a Markdown editor                           | `npm install --save react-mde`            |
+| [firebase](https://www.npmjs.com/package/firebase)                         | To access Firebase Auth and Firestore services       | `npm install --save firebase`             |
+| [react-firebase-hooks](https://www.npmjs.com/package/react-firebase-hooks) | To integrate React hooks with Firebase features      | `npm install --save react-firebase-hooks` |
 
-In the project directory, you can run:
+### Core Features
+1. Email and Google sign-in
 
-### `npm start`
+2. Email and Google registration
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3. Password recovery
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+4. Add notes in the form of Markdown and straight-away preview them as a Markdown document!
 
-### `npm test`
+5. Delete Notes
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+6. Logout
 
-### `npm run build`
+7. Light and Dark Modes
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Future Extensions
+MdNotes currently does not support mobile screens where it is built for desktops in mind. Also, there is no way of easily exporting a Markdown note where the current way for export is to copy and paste the text into an external document. These are certainly areas of exploration for MdNotes.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Acknowledgements
+This project was mainly an educational one, where the main intention was for me to gain exposure and hands-on experience with ReactJS. It would not have been possible without the help from the following sources:
+1. [Bob Ziroll's Learn React course on scrimba](https://scrimba.com/learn/learnreact)
 
-### `npm run eject`
+This course taught me the basics of React, such as React states, effects, forms and conditional rendering. MdNotes was in fact an extension from one of the hands-on project taught in the course. I would highly recommend this course as Bob is very patient and meticulous in teaching, constantly encouraging students to try out the in-course challenges instead of just watching the course videos.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. [Yusuff Faruq's article on how to integrate Firebase auth with React applications](https://blog.logrocket.com/user-authentication-firebase-react-apps/)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This is a well-written article with clear explanation on how to set up Firebase authentication services in a React application. I used it to set up the auth services, and integrated it with my Firestore database.
