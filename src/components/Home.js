@@ -38,7 +38,7 @@ export default function Home(props) {
   //Set up a side effect because we are interacting with Firestore database which is something
   //external of React. We want to set up the snapshot only once, which is when the app initialises.
   useEffect(() => {
-    const unsubscribe = onSnapshot(notesCollection, function(snapshot) {
+    const unlinkFromFirebase = onSnapshot(notesCollection, function(snapshot) {
       //Sync local notes array with latest snapshot from database
 
       const notesArray = snapshot.docs.map(doc => ({
@@ -49,7 +49,7 @@ export default function Home(props) {
       setNotes(notesArray);
 
     });
-    return unsubscribe; //Clean up function for React to call when component becomes unmounted
+    return unlinkFromFirebase; //Clean up function for React to call when component becomes unmounted
   }, [user]);
 
   //Set up a side effect to update current node id whenever all notes change

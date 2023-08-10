@@ -17,7 +17,7 @@ function Reset(props) {
             return;
         }
         if (user) {
-            //User managed to sign in
+            //User managed to sign in or that user is already signed in
             navigate("/home");
         }
     }, [user, loading]);
@@ -25,13 +25,12 @@ function Reset(props) {
     //Set up navigation variable to navigate between routes
     const navigate = useNavigate();
 
-
-     //Register function when user presses enter key
-     function enterReset(event) {
+    //Register function when user presses enter key
+    function enterReset(event) {
         if (event.key === "Enter") {
             sendPasswordReset(email);
         }
-     }
+    }
 
     return (
         <div className={`reset ${props.isDarkMode ? 'dark' : ''}`}>
@@ -46,7 +45,6 @@ function Reset(props) {
 
             <div className="reset-container">
                 <h2>Recover Password</h2>
-
 
                 <input type="text" className="reset-textBox" value={email} onChange={(e) => setEmail(e.target.value)} onKeyDown={ (event) => enterReset(event) } placeholder="Email Address" />
             

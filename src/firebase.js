@@ -2,8 +2,9 @@
 import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, getAuth, signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail, signOut} from "firebase/auth";
 import { getFirestore, collection, query, getDocs, where, addDoc } from "firebase/firestore";
-import { invalidEmailException, incorrectPasswordException, missingPasswordException, missingEmailException, weakPasswordException } from "./constants/firebaseErrors";
+import { invalidEmailException, incorrectPasswordException, missingPasswordException, missingEmailException, weakPasswordException } from "./constants/firebaseExceptions";
 
+//Firebase config options
 const firebaseConfig = {
   apiKey: "AIzaSyAMGwrz5FCyLEu6Mv_i5aI36jbt2d73w5w",
   authDomain: "mdnotes-a1e1c.firebaseapp.com",
@@ -17,11 +18,13 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getFirestore(app); //Get associated database
-const notesCollection = collection(database, "notes") //Find collection from specified database
+
+//Get associated collections from database
+const notesCollection = collection(database, "notes")
 const usersCollection = collection(database, "users");
 
 
-//Provide Google authentication feature
+//Google sign-in
 const googleAuthProvider = new GoogleAuthProvider();
 const signInWithGoogle = async () => {
     try {
@@ -47,7 +50,7 @@ const signInWithGoogle = async () => {
     }
 };
 
-//Provide email register feature
+//Register with email and password
 const registerWithEmailAndPassword = async (email, password) => {
     try {
         //Try to create a new account
@@ -73,7 +76,7 @@ const registerWithEmailAndPassword = async (email, password) => {
     }
 }
 
-//Provide email login feature
+//Login with email and password
 const logInWithEmailAndPassword = async (email, password) => {
     try {
         //Try to sign in with the given credentials
@@ -92,7 +95,7 @@ const logInWithEmailAndPassword = async (email, password) => {
     }
 }
 
-//Provide password reset functionality
+//Send reset password email
 const sendPasswordReset = async (email) => {
     try {
         //Send password reset email
@@ -127,6 +130,5 @@ export {
     sendPasswordReset,
     logout,
 }
-
 
 

@@ -22,7 +22,7 @@ function Login(props) {
             return;
         }
         if (user) {
-            //User has logged in
+            //There is a valid user or that user has managed to logged in
             navigate("/home");
         }
     }, [user, loading]);
@@ -46,17 +46,17 @@ function Login(props) {
             <div className={`login-container ${props.isDarkMode ? "dark": ""}`}>
                 <img src={appLogo} alt="MdNotes Logo" id="app-logo"></img>
 
-                <input type="text" className="login-input" value={email} onChange={(e) => setEmail(e.target.value)} tabIndex={0}
+                <input type="text" className="login-input" value={email} onChange={(event) => setEmail(event.target.value)} tabIndex={0}
                     onKeyDown={(event) => enterLogin(event) } placeholder="Email Address" />
                 
-                <input type="password" className="login-input" value={password} onChange={(e) => setPassword(e.target.value)} tabIndex={0}
+                <input type="password" className="login-input" value={password} onChange={(event) => setPassword(event.target.value)} tabIndex={0}
                     onKeyDown={(event) => enterLogin(event) } placeholder="Password" />
                 
-                <button className="login-btn" onClick={() => logInWithEmailAndPassword(email, password)} > 
+                <button className="login-button" onClick={() => logInWithEmailAndPassword(email, password)} > 
                     Login
                 </button>
 
-                <button className="login-btn login-google" onClick={signInWithGoogle}>
+                <button className="login-button login-google" onClick={signInWithGoogle}>
                     Login with Google
                 </button>
                 
