@@ -47,7 +47,7 @@ function Login(props) {
                 <img src={appLogo} alt="MdNotes Logo" id="app-logo"></img>
 
                 <input type="text" className="login-input" value={email} onChange={(e) => setEmail(e.target.value)} tabIndex={0}
-                    onKeyDown={(event) => enterLogin(event) } placeholder="E-mail Address" />
+                    onKeyDown={(event) => enterLogin(event) } placeholder="Email Address" />
                 
                 <input type="password" className="login-input" value={password} onChange={(e) => setPassword(e.target.value)} tabIndex={0}
                     onKeyDown={(event) => enterLogin(event) } placeholder="Password" />

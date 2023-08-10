@@ -51,7 +51,7 @@ function Register(props) {
         
         <h2>Welcome!</h2>
 
-        <input type="text" className="register-textBox" value={email} onChange={(e) => setEmail(e.target.value)} onKeyDown={(event) => enterRegister(event)} placeholder="E-mail Address" />
+        <input type="text" className="register-textBox" value={email} onChange={(e) => setEmail(e.target.value)} onKeyDown={(event) => enterRegister(event)} placeholder="Email Address" />
 
         <input type="password" className="register-textBox" value={password} onChange={(e) => setPassword(e.target.value)} onKeyDown={(event) => enterRegister(event)} placeholder="Password" />
 

@@ -48,7 +48,7 @@ function Reset(props) {
                 <h2>Recover Password</h2>
 
 
-                <input type="text" className="reset-textBox" value={email} onChange={(e) => setEmail(e.target.value)} onKeyDown={ (event) => enterReset(event) } placeholder="E-mail Address" />
+                <input type="text" className="reset-textBox" value={email} onChange={(e) => setEmail(e.target.value)} onKeyDown={ (event) => enterReset(event) } placeholder="Email Address" />
             
                 <button className="reset-button" onClick={() => sendPasswordReset(email)}>
                     Send Password Reset Email
