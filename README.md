@@ -1,8 +1,10 @@
 # MdNotes
-Ever found yourself writing many markdown documents and want to easily reference them across projects (remembering Markdown syntax could be difficult 🥲 ) ? Well, MdNotes is perfect for you. MdNotes is a desktop web application that stores your markdown notes and documents on a cloud server, allowing you to easily cross-reference whenever required. All you need is a desktop and Internet connection!
+Ever found yourself writing many markdown documents and want to easily reference them across projects (since remembering Markdown syntax could be difficult... 🥲 ) ? Well, MdNotes is perfect for you. MdNotes is a desktop web application that stores your markdown notes and documents on a cloud server, allowing you to easily cross-reference whenever required. All you need is a desktop and Internet connection!
+
+You can use MdNotes [here](https://mdnotes-docs.netlify.app/) and access the Figma mockup [here](https://www.figma.com/file/V9vrHPMETXE0PbabuL5yrH/MdNotes?type=design&node-id=0%3A1&mode=design&t=1OgJ6dhfwajpH3K2-1).
 
 ### Tech Stack
-MdNotes is built using ReactJS for the front-end and Firebase Authentication/Firestore for the backend. It uses the following dependencies:
+MdNotes is built using ReactJS for the front-end and Firebase Authentication/Firestore for the backend. It is hosted using Netifly. It uses the following dependencies:
 
 | Dependencies                                                               | Purpose                                              | Command                                   |
 |----------------------------------------------------------------------------|------------------------------------------------------|-------------------------------------------|
@@ -15,6 +17,11 @@ MdNotes is built using ReactJS for the front-end and Firebase Authentication/Fir
 
 ### Core Features
 1. Email and Google sign-in
+
+<p align="center">
+    <img src="src/images/login.gif" />
+</p>
+
 
 2. Email and Google registration
 
