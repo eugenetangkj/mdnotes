@@ -22,42 +22,37 @@ MdNotes is built using ReactJS for the front-end and Firebase Authentication/Fir
 ### Core Features
 1. Email and Google sign-in
 
-<p align="center">
-    <img src="src/images/login.gif" />
-</p>
+<img src="src/images/login.gif" />
 
 
 2. Email and Google registration
-<p align="center">
-    <img src="src/images/register.gif" />
-</p>
+
+<img src="src/images/register.gif" />
+
 
 3. Password recovery
-<p align="center">
-    <img src="src/images/reset.gif" />
-</p>
+
+<img src="src/images/reset.gif" />
+
 
 4. Add notes in the form of Markdown and straight-away preview them as a Markdown document!
-<p align="center">
-    <img src="src/images/add.gif" />
-</p>
+
+<img src="src/images/add.gif" />
 
 
 5. Delete Notes
-<p align="center">
-    <img src="src/images/delete.gif" />
-</p>
+
+<img src="src/images/delete.gif" />
 
 
 6. Logout
-<p align="center">
-    <img src="src/images/logout.gif" />
-</p>
+
+<img src="src/images/logout.gif" />
+
 
 7. Light and Dark Modes
-<p align="center">
-    <img src="src/images/dark.gif" />
-</p>
+
+<img src="src/images/dark.gif" />
 
 
 ### Future Extensions
