@@ -3,6 +3,10 @@ Ever found yourself writing many markdown documents and want to easily reference
 
 You can use MdNotes [here](https://mdnotes-docs.netlify.app/) and access the Figma mockup [here](https://www.figma.com/file/V9vrHPMETXE0PbabuL5yrH/MdNotes?type=design&node-id=0%3A1&mode=design&t=1OgJ6dhfwajpH3K2-1).
 
+<p align="center">
+    <img src="src/images/graphic.png" width="500" />
+</p>
+
 ### Tech Stack
 MdNotes is built using ReactJS for the front-end and Firebase Authentication/Firestore for the backend. It is hosted using Netifly. It uses the following dependencies:
 
@@ -24,16 +28,36 @@ MdNotes is built using ReactJS for the front-end and Firebase Authentication/Fir
 
 
 2. Email and Google registration
+<p align="center">
+    <img src="src/images/register.gif" />
+</p>
 
 3. Password recovery
+<p align="center">
+    <img src="src/images/reset.gif" />
+</p>
 
 4. Add notes in the form of Markdown and straight-away preview them as a Markdown document!
+<p align="center">
+    <img src="src/images/add.gif" />
+</p>
+
 
 5. Delete Notes
+<p align="center">
+    <img src="src/images/delete.gif" />
+</p>
+
 
 6. Logout
+<p align="center">
+    <img src="src/images/logout.gif" />
+</p>
 
 7. Light and Dark Modes
+<p align="center">
+    <img src="src/images/dark.gif" />
+</p>
 
 
 ### Future Extensions
