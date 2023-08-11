@@ -8,7 +8,7 @@ You can use MdNotes [here](https://mdnotes-docs.netlify.app/) and access the Fig
 </p>
 
 ### Tech Stack
-MdNotes is built using ReactJS for the front-end and Firebase Authentication/Firestore for the backend. It is hosted using Netifly. It uses the following dependencies:
+MdNotes is built using ReactJS for the front-end and Firebase Authentication/Firestore for the backend. It is hosted using Netlify. It uses the following dependencies:
 
 | Dependencies                                                               | Purpose                                              | Command                                   |
 |----------------------------------------------------------------------------|------------------------------------------------------|-------------------------------------------|
